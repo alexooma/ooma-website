@@ -1,0 +1,125 @@
+---
+export const prerender = true;
+const title = "Terms of Service";
+const effectiveDate = "August 7, 2025";
+const company = "OOMA S.A.S";
+const contact = "alexandre@ooma.live";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title} | {company}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Optional: keep it out of search results while you iterate -->
+    <!-- <meta name="robots" content="noindex,follow" /> -->
+    <style>
+      :root { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+      body { margin: 0; }
+      main { max-width: 760px; margin: 3rem auto; padding: 0 1rem 4rem; line-height: 1.6; }
+      h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+      h2 { font-size: 1.25rem; margin: 2rem 0 0.5rem; }
+      p { margin: 0.5rem 0 1rem; }
+      ol { padding-left: 1.25rem; }
+      li { margin: 0.75rem 0; }
+      .muted { color: #666; font-size: 0.95rem; }
+      .meta { margin-top: 0.25rem; }
+      .section-title { font-weight: 600; }
+      a { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>{title}</h1>
+        <div class="meta muted">
+          Effective Date: {effectiveDate}<br />
+          Company: {company}<br />
+          Contact: <a href={`mailto:${contact}`}>{contact}</a>
+        </div>
+      </header>
+
+      <p>Welcome to Ted, a social AI character app built by {company}. By using Ted, you agree to these Terms of Service.</p>
+
+      <ol>
+        <li>
+          <div class="section-title">Eligibility</div>
+          <p>You must be at least 13 years old to use the app. By using Ted, you confirm that you meet this age requirement.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Account and Access</div>
+          <p>To use certain features, you must create an account. You are responsible for keeping your login credentials secure and for all activity under your account.</p>
+          <p>We may suspend or terminate access to the app if we detect misuse, abuse, or violation of these terms.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Use of the App</div>
+          <p>Ted is designed for entertainment and social use. You agree not to:</p>
+          <ul>
+            <li>Use the app for illegal or harmful purposes</li>
+            <li>Harass or abuse other users or the AI character</li>
+            <li>Reverse engineer, scrape, or exploit the app or its content</li>
+            <li>Mislead others by impersonating another person or entity</li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="section-title">Content and Conversations</div>
+          <p>Ted is powered by AI and may generate unpredictable responses. While we moderate content and improve model safety, we cannot guarantee all outputs will be appropriate.</p>
+          <p>By using Ted, you acknowledge that:</p>
+          <ul>
+            <li>Conversations may be stored to improve the experience</li>
+            <li>Group chats and interactions may be remembered over time</li>
+            <li>You are responsible for anything you type, share, or generate in the app</li>
+          </ul>
+          <p>We reserve the right to remove content or disable accounts that violate community guidelines.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Intellectual Property</div>
+          <p>All content, code, features, and visuals within the app are owned by {company} or its licensors. You may not use our IP without permission except as permitted by the app’s normal functionality.</p>
+          <p>User generated content remains yours, but by using the app, you grant us a non exclusive, royalty free license to use it to operate, improve, and promote the app.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Payments</div>
+          <p>In app purchases may be offered via third party platforms such as Stripe. All transactions are subject to their terms. We do not store payment information.</p>
+          <p>Purchases may be non refundable, except where required by law.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Termination</div>
+          <p>You can delete your account at any time from within the app. We may suspend or terminate your access if you violate these terms or use the app inappropriately.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Disclaimers</div>
+          <p>Ted is provided “as is” without warranties of any kind. We make no guarantees about the availability, accuracy, or safety of AI responses.</p>
+          <p>To the extent permitted by law, {company} is not liable for any damages arising from your use of the app.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Privacy</div>
+          <p>Your use of Ted is also governed by our Privacy Policy, which outlines how we collect, use, and protect your data.</p>
+          <p class="muted">Add your link here once ready.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Changes to These Terms</div>
+          <p>We may update these Terms from time to time. Continued use of the app after changes means you accept the new terms. We will notify you of material changes through the app or via email.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Governing Law</div>
+          <p>These Terms are governed by the laws of France. Any disputes will be resolved in the courts of Paris, unless otherwise required by local law.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Contact</div>
+          <p>Questions? Contact us at <a href={`mailto:${contact}`}>{contact}</a>.</p>
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>
