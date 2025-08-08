@@ -8,9 +8,104 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poly:ital@0;1&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
+    <title>OOMA</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+            color: black;
+            font-weight: 300;
+            line-height: 1.4;
+            background: url('assets/background.png') 
+        }
+
+        .container {
+            max-width: 50vw;
+            margin: 0 auto;
+            padding: 40px 20px;
+            border-radius: 8px;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100px;
+            height: auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 100;
+            margin-bottom: 24px;
+            font-family: "Poly", serif;
+            font-style: italic;
+            font-size: 3em;
+        }
+
+        p {
+            margin-bottom: 14px;
+            text-align: justify;
+			font-size:1.5em;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: underline;
+            color: black;
+            font-weight: 100;
+        }
+
+		li {
+			font-size: 1.5em;
+
+		}
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 	</head>
 	<body>
-		<h1>Astro</h1>
+   <div class="container">
+        <img src="assets/logo.png" alt="Logo" class="logo" />
+        <h1>Social Ingenuity</h1>
+
+        <p>OOMA is a social AI lab reimagining how people hang out in the post-AI world. We are building the social
+            interface of the future, one that is as entertaining as it is useful.</p>
+
+        <p>We do not believe the future of AI is a solitary romance with your operating system. Whether you see that as
+            utopia or dystopia, we think it is incomplete. The real magic happens when AI makes human-to-human moments
+            richer, funnier, and more alive. It should be a shared experience, not a private escape.</p>
+
+        <p>Our approach is to invent at the intersection of emotional intelligence, real-time interaction, and AI
+            embodiment. We combine research and product design to create experiences that are delightful in the moment
+            and unforgettable in memory.</p>
+
+        <p>We are a team of builders and artists. We prototype fast, deploy in the wild, and learn from real social
+            dynamics. Our work has already entertained and connected millions, and we are only getting started.</p>
+
+        <p>If this future excites you, we would love to hear from you.<br>
+            — Alex, Kevin, and the OOMA team</p>
+
+        <p><strong>Our latest projects</strong>
+		<li>
+            <a href="https://www.tiktok.com/@talkingwoody?lang=en-GB">Woody, AI NPC on TikTok live</a></li>
+           <li><a href="https://ted.ooma.live/">Ted, your next favorite AI buddy</a> </li>
+        </p>
+
+		<p>Contact: alexandre@ooma.live <br>©2025 OOMA S.A.S</p>
+
+    </div>
 	</body>
 </html>
