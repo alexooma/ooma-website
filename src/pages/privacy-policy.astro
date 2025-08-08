@@ -1,0 +1,124 @@
+---
+export const prerender = true;
+const title = "Privacy Policy";
+const effectiveDate = "August 7, 2025";
+const company = "OOMA S.A.S";
+const contact = "alexandre@ooma.live";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title} | {company}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Optional: keep it out of search results while you iterate -->
+    <!-- <meta name="robots" content="noindex,follow" /> -->
+    <style>
+      :root { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+      body { margin: 0; }
+      main { max-width: 760px; margin: 3rem auto; padding: 0 1rem 4rem; line-height: 1.6; }
+      h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+      h2 { font-size: 1.25rem; margin: 2rem 0 0.5rem; }
+      p { margin: 0.5rem 0 1rem; }
+      ol { padding-left: 1.25rem; }
+      li { margin: 0.75rem 0; }
+      .muted { color: #666; font-size: 0.95rem; }
+      .meta { margin-top: 0.25rem; }
+      .section-title { font-weight: 600; }
+      a { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>{title}</h1>
+        <div class="meta muted">
+          Effective Date: {effectiveDate}<br />
+          Company: {company}<br />
+          Contact: <a href={`mailto:${contact}`}>{contact}</a>
+        </div>
+      </header>
+
+      <p>At OOMA, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your data when you use Ted, our interactive AI character app designed for group chats and livestreams.</p>
+
+      <ol>
+        <li>
+          <div class="section-title">Who This Policy Applies To</div>
+          <p>Ted is intended for users aged 13 and older. If you are under 13, you are not permitted to use the app. Users between 13 and 18 may use the app freely, but we encourage parents to monitor use.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Data We Collect</div>
+          <p>We collect the following types of information:</p>
+          <ul>
+            <li><strong>Account Info:</strong> Email address, username, and any other information provided at signup.</li>
+            <li><strong>Device Info:</strong> IP address, browser type, and device ID.</li>
+            <li><strong>Usage Data:</strong> App interactions, session length, and crash logs.</li>
+            <li><strong>Group Content:</strong> Conversations and interactions with Ted are stored to improve response quality and personalization.</li>
+            <li><strong>Local Storage:</strong> We use local storage (not cookies) to remember session details and app preferences.</li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="section-title">Why We Collect It</div>
+          <p>We use this information to:</p>
+          <ul>
+            <li>Operate and improve the Ted experience</li>
+            <li>Enable AI memory within group chats</li>
+            <li>Monitor for abuse or misuse</li>
+            <li>Analyze user engagement and behavior (e.g., via Mixpanel)</li>
+            <li>Diagnose bugs and performance issues (via Sentry)</li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="section-title">Third-Party Services</div>
+          <p>We rely on several third-party providers to operate Ted:</p>
+          <ul>
+            <li><strong>Infrastructure:</strong> AWS (hosting, data storage), Azure (text-to-speech)</li>
+            <li><strong>Analytics:</strong> Mixpanel</li>
+            <li><strong>Error Monitoring:</strong> Sentry</li>
+            <li><strong>AI Services:</strong> We work with a third-party large language model (LLM) provider to generate AI responses. User conversations are shared with this provider but are not used to train their models. Prompts and outputs may be temporarily stored to detect abuse or enforce content policies.</li>
+          </ul>
+          <p>To the best of our knowledge, none of these providers use your data for unrelated purposes such as advertising or model training.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Data Storage and Security</div>
+          <p>Your data is stored securely on AWS using:</p>
+          <ul>
+            <li>TLS encryption (HTTPS) in transit</li>
+            <li>Encryption at rest</li>
+            <li>Role-based access controls (IAM policies)</li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="section-title">User Rights</div>
+          <p>You have the right to:</p>
+          <ul>
+            <li>Access the personal data we store about you</li>
+            <li>Delete your account and data at any time directly from the app</li>
+            <li>Request data export or correction</li>
+          </ul>
+          <p>We aim to comply with relevant privacy regulations, including GDPR and CCPA, where applicable.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Payments and Purchases</div>
+          <p>Ted plans to offer in-app purchases using third-party processors such as Stripe. We do not store your payment information ourselves.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Changes to This Policy</div>
+          <p>We may update this Privacy Policy from time to time. When we do, we’ll notify you via the app or email and update the effective date at the top.</p>
+        </li>
+
+        <li>
+          <div class="section-title">Contact Us</div>
+          <p>For any privacy-related questions or concerns, contact: <a href={`mailto:${contact}`}>{contact}</a></p>
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>
