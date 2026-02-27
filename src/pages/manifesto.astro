@@ -142,15 +142,42 @@
 
       /* ── Body text ── */
       .main-description {
-        font-family: 'Share Tech Mono', monospace;
-        font-size: 20px;
-        color: white;
-        line-height: 1.65;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         overflow-wrap: break-word;
       }
 
-      .main-description p { margin: 0 0 1.5em 0; }
-      .main-description p:last-child { margin-bottom: 0; }
+      .text-block {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .text-title {
+        font-family: 'Paragon', serif;
+        font-size: 28px;
+        font-weight: 400;
+        margin: 0;
+        color: white;
+        line-height: 1.2;
+      }
+
+      .text-body {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 16px;
+        margin: 0;
+        color: white;
+        line-height: 1.65;
+      }
+
+      .text-closing {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 16px;
+        margin: 0;
+        color: white;
+        line-height: 1.65;
+      }
 
       /* ── Mobile ── */
       @media (max-width: 900px) {
@@ -181,7 +208,8 @@
         .main-content { padding: 28px 20px; }
         .section-description { font-size: 22px; }
         .company-name { font-size: 26px; }
-        .main-description, .section-title, .nav-link, .contact-info { font-size: 15px; }
+        .text-title { font-size: 22px; }
+        .text-body, .text-closing, .section-title, .nav-link, .contact-info { font-size: 14px; }
         .logo { width: 64px; }
         .nav   { margin-bottom: 28px; }
         .logo-container { margin-bottom: 28px; }
@@ -211,9 +239,19 @@
 
       <div class="right">
         <div class="main-description">
-          <p>How people will hang out in the post-AI world. We are building the future social interface, one that is as entertaining as it is alive. The real magic happens when AI makes human-to-human moments richer, funnier, and more electric. A shared experience.</p>
-          <p>The next AI characters interface is live, visual and shared. Characters that perform and react in real time. Audiences that gather, argue, and build stories together. We are building the platform that makes all of it possible. We are builders and artists working at the intersection of emotional intelligence, real-time interaction, and AI embodiment. We prototype fast, deploy in the wild, and learn from real social dynamics.</p>
-          <p>If this future excites you, we would love to hear from you.<br>— Alex, Kevin, and the OOMA team</p>
+          <div class="text-block">
+            <p class="text-title">How people will hang out in the post-AI world.</p>
+            <p class="text-body">We are building the future social interface, one that is as entertaining as it is alive. The real magic happens when AI makes human-to-human moments richer, funnier, and more electric. A shared experience.</p>
+          </div>
+          <div class="text-block">
+            <p class="text-title">The next AI characters interface is live, visual and shared.</p>
+            <p class="text-body">Characters that perform and react in real time. Audiences that gather, argue, and build stories together.</p>
+          </div>
+          <div class="text-block">
+            <p class="text-title">We are building the platform that makes all of it possible.</p>
+            <p class="text-body">We are builders and artists working at the intersection of emotional intelligence, real-time interaction, and AI embodiment. We prototype fast, deploy in the wild, and learn from real social dynamics.</p>
+          </div>
+          <p class="text-closing">If this future excites you, we would love to hear from you.<br>— Alex, Kevin, and the OOMA team</p>
         </div>
       </div>
     </div>
