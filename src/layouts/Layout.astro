@@ -1,0 +1,109 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+      @font-face {
+        font-family: 'Paragon';
+        src: url('/fonts/Paragon-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Paragon';
+        src: url('/fonts/Paragonitalic-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: italic;
+      }
+    </style>
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/" class="logo-link">
+        <img src="/assets/logo_white.png" alt="OOMA Logo" class="logo" />
+        <span class="company-name">ooma</span>
+      </a>
+    </header>
+    <div class="page">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background-color: #141415;
+    color: white;
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 28px 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .logo { width: 45px; height: auto; }
+
+  .company-name {
+    font-family: 'Paragon', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    line-height: 1;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 1265px;
+    padding: 120px 60px 60px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  @media (max-width: 1100px) {
+    .header { padding: 24px 40px; }
+    .page   { padding: 100px 40px 40px; }
+  }
+
+  @media (max-width: 600px) {
+    body { align-items: flex-start; justify-content: flex-start; }
+    .header { padding: 20px; }
+    .page   { padding: 80px 20px 28px; gap: 20px; }
+    .logo { width: 36px; }
+    .company-name { font-size: 17px; }
+  }
+</style>
