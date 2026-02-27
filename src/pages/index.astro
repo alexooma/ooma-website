@@ -30,7 +30,6 @@
       *, *::before, *::after { box-sizing: border-box; }
 
       html, body {
-        height: 100%;
         margin: 0;
         padding: 0;
       }
@@ -45,7 +44,7 @@
         justify-content: center;
       }
 
-      /* ── Grid layout ── */
+      /* ── Desktop: CSS grid ── */
       .main-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -58,44 +57,10 @@
         row-gap: 55px;
       }
 
-      .logo-container {
-        grid-column: 1;
-        grid-row: 1;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 21px;
-      }
-
-      .studio-info {
-        grid-column: 1;
-        grid-row: 2;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-self: start;
-      }
-
-      .profiles {
-        grid-column: 1;
-        grid-row: 3;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        align-self: start;
-      }
-
-      .footer {
-        grid-column: 1;
-        grid-row: 4;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-        align-self: end;
-      }
-
+      .nav         { grid-column: 1; grid-row: 4; align-self: end; }
+      .logo-container { grid-column: 1; grid-row: 1; }
+      .studio-info { grid-column: 1; grid-row: 2; align-self: start; }
+      .profiles    { grid-column: 1; grid-row: 3; align-self: start; }
       .landing-video {
         grid-column: 2;
         grid-row: 1 / 5;
@@ -109,10 +74,14 @@
       }
 
       /* ── Logo ── */
-      .logo {
-        width: 96px;
-        height: auto;
+      .logo-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 21px;
       }
+
+      .logo { width: 96px; height: auto; }
 
       .company-name {
         font-family: 'Paragon', serif;
@@ -123,6 +92,12 @@
       }
 
       /* ── Studio info ── */
+      .studio-info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
       .studio-title {
         font-family: 'Paragon', serif;
         font-size: 50px;
@@ -140,6 +115,12 @@
       }
 
       /* ── Profiles ── */
+      .profiles {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
       .profile {
         display: flex;
         flex-direction: column;
@@ -155,9 +136,7 @@
         text-decoration: none;
       }
 
-      .profile-name:hover {
-        text-decoration: underline;
-      }
+      .profile-name:hover { text-decoration: underline; }
 
       .profile-description {
         font-family: 'Share Tech Mono', monospace;
@@ -175,27 +154,30 @@
         opacity: 0.7;
       }
 
-      /* ── Footer ── */
-      .footer-links {
+      /* ── Nav ── */
+      .nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .nav-links {
         display: flex;
         flex-direction: row;
         gap: 20px;
       }
 
-      .footer-link {
+      .nav-link {
         font-family: 'Share Tech Mono', monospace;
         font-size: 20px;
         color: white;
         text-decoration: none;
       }
 
-      .footer-link.active {
-        color: #FFE100;
-      }
-
-      .footer-link:hover {
-        text-decoration: underline;
-      }
+      .nav-link.active { color: #FFE100; }
+      .nav-link:hover { text-decoration: underline; }
 
       .contact-info {
         font-family: 'Share Tech Mono', monospace;
@@ -203,59 +185,43 @@
         color: white;
       }
 
-      /* ── Responsive ── */
+      /* ── Mobile ── */
       @media (max-width: 900px) {
+        body {
+          align-items: flex-start;
+        }
+
         .main-content {
           grid-template-columns: 1fr;
           grid-template-rows: auto;
           min-height: auto;
-          padding: 48px 28px;
-          row-gap: 36px;
+          padding: 36px 24px;
+          row-gap: 32px;
         }
 
-        .logo-container  { grid-column: 1; grid-row: 1; }
-        .studio-info     { grid-column: 1; grid-row: 2; }
-        .landing-video   { grid-column: 1; grid-row: 3; align-self: auto; justify-self: auto; max-width: 100%; }
-        .profiles        { grid-column: 1; grid-row: 4; }
-        .footer          { grid-column: 1; grid-row: 5; align-self: auto; }
+        /* nav on top, then logo, studio, video, profiles */
+        .nav           { grid-column: 1; grid-row: 1; align-self: auto; }
+        .logo-container { grid-column: 1; grid-row: 2; }
+        .studio-info   { grid-column: 1; grid-row: 3; align-self: auto; }
+        .landing-video { grid-column: 1; grid-row: 4; align-self: auto; justify-self: auto; max-width: 100%; }
+        .profiles      { grid-column: 1; grid-row: 5; align-self: auto; }
 
-
-        .studio-title {
-          font-size: 36px;
+        .nav {
+          flex-direction: row;
+          align-items: center;
         }
 
-        .company-name {
-          font-size: 38px;
-        }
-
-        .footer {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 12px;
-        }
+        .studio-title  { font-size: 32px; }
+        .company-name  { font-size: 36px; }
       }
 
       @media (max-width: 480px) {
-        .main-content {
-          padding: 32px 20px;
-        }
-
-        .studio-title,
-        .company-name {
-          font-size: 28px;
-        }
-
-        .studio-description,
-        .profile-description,
-        .profile-achievement,
-        .footer-link,
-        .contact-info {
-          font-size: 16px;
-        }
-
-        .logo {
-          width: 72px;
-        }
+        .main-content { padding: 28px 20px; row-gap: 28px; }
+        .studio-title, .company-name { font-size: 26px; }
+        .studio-description, .profile-description, .profile-achievement,
+        .nav-link, .contact-info { font-size: 15px; }
+        .logo { width: 64px; }
+        .profiles { gap: 28px; }
       }
     </style>
   </head>
@@ -294,13 +260,13 @@
         </div>
       </div>
 
-      <div class="footer">
-        <div class="footer-links">
-          <a href="/" class="footer-link active">Home</a>
-          <a href="/manifesto" class="footer-link">Manifesto</a>
+      <nav class="nav">
+        <div class="nav-links">
+          <a href="/" class="nav-link active">Home</a>
+          <a href="/manifesto" class="nav-link">Manifesto</a>
         </div>
         <span class="contact-info">contact@ooma.live</span>
-      </div>
+      </nav>
 
     </div>
   </body>

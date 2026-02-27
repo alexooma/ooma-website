@@ -29,23 +29,19 @@
     <style>
       *, *::before, *::after { box-sizing: border-box; }
 
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+      html, body { margin: 0; padding: 0; }
 
       body {
         background-color: #141415;
         color: white;
         font-family: 'Share Tech Mono', monospace;
+        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 100vh;
       }
 
-      /* ── Page shell ── */
+      /* ── Desktop: 2-column flex ── */
       .main-content {
         display: flex;
         flex-direction: row;
@@ -56,20 +52,19 @@
         gap: 30px;
       }
 
-      /* ── Columns ── */
-      .left-section {
+      .left {
         flex: 1;
+        min-width: 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        gap: 55px;
       }
 
-      .right-section {
+      .right {
         flex: 1;
+        min-width: 0;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        align-items: center;
       }
 
       /* ── Logo ── */
@@ -80,10 +75,7 @@
         gap: 21px;
       }
 
-      .logo {
-        width: 96px;
-        height: auto;
-      }
+      .logo { width: 96px; height: auto; }
 
       .company-name {
         font-family: 'Paragon', serif;
@@ -93,7 +85,7 @@
         line-height: 1;
       }
 
-      /* ── Manifesto section ── */
+      /* ── Tagline ── */
       .studio-info {
         display: flex;
         flex-direction: column;
@@ -114,10 +106,11 @@
         margin: 0;
         color: white;
         line-height: 1.25;
+        overflow-wrap: break-word;
       }
 
-      /* ── Footer ── */
-      .footer {
+      /* ── Nav ── */
+      .nav {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -125,26 +118,21 @@
         gap: 20px;
       }
 
-      .footer-links {
+      .nav-links {
         display: flex;
         flex-direction: row;
         gap: 20px;
       }
 
-      .footer-link {
+      .nav-link {
         font-family: 'Share Tech Mono', monospace;
         font-size: 20px;
         color: white;
         text-decoration: none;
       }
 
-      .footer-link.active {
-        color: #FFE100;
-      }
-
-      .footer-link:hover {
-        text-decoration: underline;
-      }
+      .nav-link.active { color: #FFE100; }
+      .nav-link:hover { text-decoration: underline; }
 
       .contact-info {
         font-family: 'Share Tech Mono', monospace;
@@ -158,105 +146,76 @@
         font-size: 20px;
         color: white;
         line-height: 1.65;
+        overflow-wrap: break-word;
       }
 
-      .main-description p {
-        margin: 0 0 1.5em 0;
-      }
+      .main-description p { margin: 0 0 1.5em 0; }
+      .main-description p:last-child { margin-bottom: 0; }
 
-      .main-description p:last-child {
-        margin-bottom: 0;
-      }
-
-      /* ── Responsive ── */
+      /* ── Mobile ── */
       @media (max-width: 900px) {
+        body { align-items: flex-start; }
+
         .main-content {
           flex-direction: column;
           min-height: auto;
-          padding: 48px 28px;
-          gap: 48px;
+          padding: 36px 24px;
+          gap: 0;
         }
 
-        .left-section {
-          gap: 40px;
+        /* Reorder: nav → logo → tagline → body */
+        .nav   { order: 1; margin-bottom: 32px; }
+        .logo-container { order: 2; margin-bottom: 32px; }
+        .studio-info    { order: 3; margin-bottom: 32px; }
+        .right          { order: 4; }
+
+        .left {
+          display: contents; /* flatten left children into main-content flow */
         }
 
-        .section-description {
-          font-size: 28px;
-        }
-
-        .company-name {
-          font-size: 38px;
-        }
-
-        .footer {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 12px;
-        }
+        .section-description { font-size: 26px; }
+        .company-name { font-size: 36px; }
       }
 
       @media (max-width: 480px) {
-        .main-content {
-          padding: 32px 20px;
-        }
-
-        .section-description {
-          font-size: 22px;
-        }
-
-        .main-description,
-        .footer-link,
-        .contact-info,
-        .section-title {
-          font-size: 16px;
-        }
-
-        .logo {
-          width: 72px;
-        }
-
-        .company-name {
-          font-size: 32px;
-        }
+        .main-content { padding: 28px 20px; }
+        .section-description { font-size: 22px; }
+        .company-name { font-size: 26px; }
+        .main-description, .section-title, .nav-link, .contact-info { font-size: 15px; }
+        .logo { width: 64px; }
+        .nav   { margin-bottom: 28px; }
+        .logo-container { margin-bottom: 28px; }
+        .studio-info    { margin-bottom: 28px; }
       }
     </style>
   </head>
   <body>
     <div class="main-content">
-
-      <!-- Left column -->
-      <div class="left-section">
-
+      <div class="left">
         <div class="logo-container">
           <img src="/assets/logo_white.png" alt="OOMA Logo" class="logo" />
           <span class="company-name">ooma</span>
         </div>
-
         <div class="studio-info">
           <p class="section-title">Our manifesto</p>
           <p class="section-description">AI characters are the next interface that gathers humans around.</p>
         </div>
-
-        <div class="footer">
-          <div class="footer-links">
-            <a href="/" class="footer-link">Home</a>
-            <a href="/manifesto" class="footer-link active">Manifesto</a>
+        <nav class="nav">
+          <div class="nav-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/manifesto" class="nav-link active">Manifesto</a>
           </div>
           <span class="contact-info">contact@ooma.live</span>
-        </div>
-
+        </nav>
       </div>
 
-      <!-- Right column -->
-      <div class="right-section">
+      <div class="right">
         <div class="main-description">
           <p>How people will hang out in the post-AI world. We are building the future social interface, one that is as entertaining as it is alive. The real magic happens when AI makes human-to-human moments richer, funnier, and more electric. A shared experience.</p>
           <p>The next AI characters interface is live, visual and shared. Characters that perform and react in real time. Audiences that gather, argue, and build stories together. We are building the platform that makes all of it possible. We are builders and artists working at the intersection of emotional intelligence, real-time interaction, and AI embodiment. We prototype fast, deploy in the wild, and learn from real social dynamics.</p>
           <p>If this future excites you, we would love to hear from you.<br>— Alex, Kevin, and the OOMA team</p>
         </div>
       </div>
-
     </div>
   </body>
 </html>
